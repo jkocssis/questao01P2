@@ -52,7 +52,20 @@ public class Questao1P2 {
        empregados[3] = base;
        
         System.out.println("\nLista de empregados: ");
-        
+        for(Empregado corrente:empregados){
+            System.out.println(corrente);
+            
+            if (corrente instanceof BaseComissionado) {
+            BaseComissionado empregado = 
+                    (BaseComissionado) corrente;
+            empregado.setSalarioBase(1.10 * empregado.getSalarioBase());
+            
+        }
+            System.out.printf("vencimentos R$%,.2f%n%n", corrente.getValorPagto());
+        }
+        for(int j = 0; j<empregados.length; j++)
+            System.out.printf("Empregado %d e um %s%n",j,
+                    empregados[j].getClass().getName());
             
         
                 
