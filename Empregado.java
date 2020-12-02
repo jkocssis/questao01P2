@@ -9,22 +9,20 @@ package questao1p2;
  *
  * @author joaok
  */
-public abstract class Empregado implements Pagavel {
+public abstract class Empregado {
     private final String Nome;
-    private final String Sobrenome;
-    private final String CPF;
+    private final  String Sobrenome;
+    private final  String CPF;
 
     public Empregado(String Nome, String Sobrenome, String CPF) {
         this.Nome = Nome;
         this.Sobrenome = Sobrenome;
         this.CPF = CPF;
     }
-    
-    
-    
 
     
-    public abstract double getValorPagto();
+    
+          
 
     public String getNome() {
         return Nome;
@@ -42,6 +40,9 @@ public abstract class Empregado implements Pagavel {
     public String toString(){
         return String.format("%s %s%nCPF: %s", getNome(), getSobrenome(), getCPF());
     }
+    
+    public abstract double Ganhos();
+    
     
    
     

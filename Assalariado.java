@@ -9,37 +9,44 @@ package questao1p2;
  *
  * @author joaok
  */
-public class Assalariado extends Empregado implements Pagavel {
+public class Assalariado extends Empregado  {
     private double salarioMensal;
 
-    public Assalariado(double salarioMensal, String Nome, String Sobrenome, String CPF) {
+    public Assalariado( String Nome, String Sobrenome, String CPF,double salarioMensal) {
         super(Nome, Sobrenome, CPF);
         if(salarioMensal < 0.0)
             throw new IllegalArgumentException(
             "Salario mensal deve ser maior ou igual a 0");
         this.salarioMensal = salarioMensal;
     }
-    public void setSalarioMensal(double salariodoMes){
-        if(salariodoMes < 0.0)
+    public void setSalarioMensal(double salarioMensal){
+        if(salarioMensal < 0.0)
             throw new IllegalArgumentException(
             "Salario mensal deve ser maior ou igual a 0");
-        this.salarioMensal = salariodoMes;
+        this.salarioMensal = salarioMensal;
     }
-    public double getSalarioMensal(){
+
+    public double getSalarioMensal() {
         return salarioMensal;
     }
+     
         
    
     @Override
-    public double getValorPagto(){
+    public double Ganhos(){
         return getSalarioMensal();
     }
     
+   
+    
     @Override
     public String toString(){
-        return String.format("Salario do peao: %s%n%s: $%,.2f", 
+        return String.format("Salario do peao: %s%n%s: R$%,.2f", 
                 super.toString(), "Salario Mensal", getSalarioMensal());
     }
+    
+        
+    
     
     
 }

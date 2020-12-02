@@ -9,11 +9,11 @@ package questao1p2;
  *
  * @author joaok
  */
-public class Horista extends Empregado implements Pagavel {
+public class Horista extends Empregado {
     private double valorHora;
     private double horasTrab;
 
-    public Horista(double valorHora, double horasTrab, String Nome, String Sobrenome, String CPF) {
+    public Horista( String Nome, String Sobrenome, String CPF,double valorHora, double horasTrab) {
         super(Nome, Sobrenome, CPF);
         if ( valorHora < 0.0)
             throw new IllegalArgumentException(
@@ -21,7 +21,7 @@ public class Horista extends Empregado implements Pagavel {
         
         if ( horasTrab < 0.0 || (horasTrab > 168.0))
             throw new IllegalArgumentException(
-            "A hora trabalhada  deve ser maior ou igual a 0.0 e menor ou igual R$168,00");
+            "A hora trabalhada  deve ser maior ou igual a 0.0 e menor ou igual 168.0");
         
         this.valorHora = valorHora;
         this.horasTrab = horasTrab;
@@ -32,9 +32,14 @@ public class Horista extends Empregado implements Pagavel {
             "O valor da hora trabalhada  deve ser maior ou igual a 0");
         this.valorHora = valorHora;
     }
-    public double getvalorHora(){
+
+    public double getValorHora() {
         return valorHora;
     }
+
+   
+    
+    
     
     public void sethorasTrab(double horas){
         if ( horasTrab < 0.0 || (horasTrab > 168.0))
@@ -48,17 +53,17 @@ public class Horista extends Empregado implements Pagavel {
     }
     
     @Override
-    public double getValorPagto(){
+    public double Ganhos(){
         if(gethorasTrab() <= 40)
-            return gethorasTrab() * getvalorHora();
+            return getValorHora() * gethorasTrab() ;
         else 
-            return 40 * gethorasTrab() + (getvalorHora() - 40 ) * gethorasTrab( )* 1.5;
+            return 40 * getValorHora() + (gethorasTrab() - 40 ) * getValorHora() * 1.5;
     }
     
     @Override
     public String toString(){
-        return String.format("Horista: %s%n%s: $%,..2f; %s: %,..2f", 
-                super.toString(), "valor da hora:", getvalorHora(),
+        return String.format("Horista: %s%n%s: R$%,..2f; %s: %,..2f", 
+                super.toString(), "valor da hora:", getValorHora(),
                 "horas trabalhadas:", gethorasTrab() );
     }
     
