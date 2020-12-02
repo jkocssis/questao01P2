@@ -9,7 +9,7 @@ package questao1p2;
  *
  * @author joaok
  */
-public class Horista extends Empregado {
+public class Horista extends Empregado implements Pagavel {
     private double valorHora;
     private double horasTrab;
 
@@ -53,7 +53,7 @@ public class Horista extends Empregado {
     }
     
     @Override
-    public double Ganhos(){
+    public double getValorPagto(){
         if(gethorasTrab() <= 40)
             return getValorHora() * gethorasTrab() ;
         else 

@@ -9,7 +9,7 @@ package questao1p2;
  *
  * @author joaok
  */
-public abstract class Empregado {
+public abstract class Empregado implements Pagavel {
     private final String Nome;
     private final  String Sobrenome;
     private final  String CPF;
@@ -41,7 +41,7 @@ public abstract class Empregado {
         return String.format("%s %s%nCPF: %s", getNome(), getSobrenome(), getCPF());
     }
     
-    public abstract double Ganhos();
+    //public abstract double Ganhos();
     
     
    

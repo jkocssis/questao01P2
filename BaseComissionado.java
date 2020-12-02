@@ -9,7 +9,7 @@ package questao1p2;
  *
  * @author joaok
  */
-public class BaseComissionado extends Comissionado   {
+public class BaseComissionado extends Comissionado implements Pagavel   {
     private double salarioBase;
 
     public BaseComissionado( String Nome, String Sobrenome, String CPF,
@@ -36,8 +36,8 @@ public class BaseComissionado extends Comissionado   {
     }
     
     @Override
-    public double Ganhos(){
-        return getSalarioBase() + super.Ganhos();
+    public double getValorPagto(){
+        return getSalarioBase() + super.getValorPagto();
     }
     
     @Override

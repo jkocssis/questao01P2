@@ -10,5 +10,6 @@ package questao1p2;
  * @author joaok
  */
 public interface Pagavel {
+    double getValorPagto();
     
 }

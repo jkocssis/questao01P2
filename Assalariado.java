@@ -9,7 +9,7 @@ package questao1p2;
  *
  * @author joaok
  */
-public class Assalariado extends Empregado  {
+public class Assalariado extends Empregado implements Pagavel {
     private double salarioMensal;
 
     public Assalariado( String Nome, String Sobrenome, String CPF,double salarioMensal) {
@@ -33,7 +33,7 @@ public class Assalariado extends Empregado  {
         
    
     @Override
-    public double Ganhos(){
+    public double getValorPagto(){
         return getSalarioMensal();
     }
     

@@ -26,23 +26,36 @@ public class Questao1P2 {
         
         System.out.println("\nAssalariado: "+ "\nNome: " + assalariado.getNome()+" " +
                 assalariado.getSobrenome()+"\nCPF:"
-                + assalariado.getCPF() +" \nRecebeu: R$" + assalariado.Ganhos());
+                + assalariado.getCPF() +" \nRecebeu: R$" + assalariado.getValorPagto());
         
         System.out.println("\nHorista: "+ "\nNome: " + horista.getNome() +" "+
                 horista.getSobrenome()+"\nCPF:"
                 + horista.getCPF() + "\nHoras trabalhadas: " +horista.gethorasTrab()
-                + "\nvalor da hora: " + horista.getValorHora() +" \nRecebeu: R$" + horista.Ganhos());
+                + "\nvalor da hora: " + horista.getValorHora() +" \nRecebeu: R$" + horista.getValorPagto());
         
        System.out.println("\nComissionado:" + "\nNome: "+com.getNome()+" "+com.getSobrenome()+
                "\nCPF: "+com.getCPF()+ "\nVendas: "+ com.getVendasMensal()+
                "\nComissao:"+ com.getPercComissao()+
-               "\nRecebeu: R$" + com.Ganhos());
+               "\nRecebeu: R$" + com.getValorPagto());
        
        System.out.println("\nBase Comissionado:" + "\nNome: "+ base.getNome()+" "+ base.getSobrenome()+
                "\nCPF: "+ base.getCPF()+ "\nVendas: "+ base.getVendasMensal()+
                "\nComissao:"+ base.getPercComissao()+ 
                "\nSalario base:"+base.getSalarioBase()+
-               "\nRecebeu: R$" + base.Ganhos());
+               "\nRecebeu: R$" + base.getValorPagto());
+       
+       Empregado[] empregados = new Empregado[4];
+       
+       empregados[0] = assalariado;
+       empregados[1] = horista;
+       empregados[2] = com;
+       empregados[3] = base;
+       
+        System.out.println("\nLista de empregados: ");
+        
+            
+        
+                
     }
     
 }

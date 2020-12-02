@@ -9,7 +9,7 @@ package questao1p2;
  *
  * @author joaok
  */
-public class Comissionado extends Empregado  {
+public class Comissionado extends Empregado implements Pagavel  {
     private double vendasMensal;
     private double percComissao;
 
@@ -50,7 +50,7 @@ public class Comissionado extends Empregado  {
     }
     
     @Override
-    public double Ganhos(){
+    public double getValorPagto(){
         return getPercComissao() * getVendasMensal();
     }
     
