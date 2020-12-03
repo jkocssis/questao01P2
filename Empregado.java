@@ -5,6 +5,9 @@
  */
 package questao1p2;
 
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  *
  * @author joaok
@@ -13,14 +16,17 @@ public abstract class Empregado implements Pagavel {
     private final String Nome;
     private final  String Sobrenome;
     private final  String CPF;
+    
+    
 
-    public Empregado(String Nome, String Sobrenome, String CPF) {
+    public Empregado(String Nome, String Sobrenome, String CPF ) {
         this.Nome = Nome;
         this.Sobrenome = Sobrenome;
         this.CPF = CPF;
+        
     }
-
     
+       
     
           
 
@@ -35,6 +41,9 @@ public abstract class Empregado implements Pagavel {
     public String getCPF() {
         return CPF;
     }
+
+    
+    
 
     @Override
     public String toString(){

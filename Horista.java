@@ -5,15 +5,17 @@
  */
 package questao1p2;
 
+import java.util.Calendar;
+
 /**
  *
  * @author joaok
  */
-public class Horista extends Empregado implements Pagavel {
+public class Horista extends Empregado {
     private double valorHora;
     private double horasTrab;
 
-    public Horista( String Nome, String Sobrenome, String CPF,double valorHora, double horasTrab) {
+    public Horista( String Nome, String Sobrenome, String CPF , double valorHora, double horasTrab) {
         super(Nome, Sobrenome, CPF);
         if ( valorHora < 0.0)
             throw new IllegalArgumentException(
@@ -26,6 +28,8 @@ public class Horista extends Empregado implements Pagavel {
         this.valorHora = valorHora;
         this.horasTrab = horasTrab;
     }
+
+    
     public void setvalorHora(double valorHora){
         if ( valorHora < 0.0)
             throw new IllegalArgumentException(
@@ -62,7 +66,7 @@ public class Horista extends Empregado implements Pagavel {
     
     @Override
     public String toString(){
-        return String.format("Horista: %s%n%s: R$%,..2f; %s: %,..2f", 
+        return String.format("Horista: %s%n%s: R$%,.2f; %s: %,.2f", 
                 super.toString(), "valor da hora:", getValorHora(),
                 "horas trabalhadas:", gethorasTrab() );
     }

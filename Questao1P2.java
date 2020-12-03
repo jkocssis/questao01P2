@@ -53,20 +53,38 @@ public class Questao1P2 {
        
         System.out.println("\nLista de empregados: ");
         for(Empregado corrente:empregados){
-            System.out.println(corrente);
+            /*System.out.println(corrente.getNome()+" "+ corrente.getSobrenome()+
+                   "\nCPF"+ corrente.getCPF()+"\n");*/
+            System.out.println("\n"+corrente);
             
-            if (corrente instanceof BaseComissionado) {
-            BaseComissionado empregado = 
-                    (BaseComissionado) corrente;
+            if(corrente instanceof BaseComissionado){
+                BaseComissionado empregado = (BaseComissionado) corrente;
             empregado.setSalarioBase(1.10 * empregado.getSalarioBase());
             
+                System.out.println("O novo salario do Base Comissionado, acrescido de 10% e: R$"
+                        + empregado.getSalarioBase());
         }
-            System.out.printf("vencimentos R$%,.2f%n%n", corrente.getValorPagto());
-        }
-        for(int j = 0; j<empregados.length; j++)
-            System.out.printf("Empregado %d e um %s%n",j,
-                    empregados[j].getClass().getName());
+            System.out.println("\nGanhos por mes: R$" +corrente.getValorPagto());
+            System.out.println("Ganhos em 12 meses: R$" +corrente.getValorPagto() * 12);
+            System.out.println("*************************************");
             
+           Pagavel[] fatura = new Pagavel[6];
+           
+           fatura[0] = new Fatura("123", "Cadeira", 100, 200.00);
+           fatura[1] = new Assalariado("Paula", "dos Santos", "1258", 1000.00);
+           fatura[2] = new Fatura("124", "PC", 10, 1000.00);
+           fatura[3] = new Fatura("125", "Armario", 2, 500.00);
+           fatura[4] = new Fatura("126", "Cafe", 100, 20);
+           fatura[5] = new Horista("Marcia", "Valadares", "14558", 25, 110);
+           
+            System.out.println("Faturas: ");
+            
+            for(Pagavel faturaAtual: fatura ){
+                System.out.println("\n"+faturaAtual.toString()+"\nTotal: R$"+faturaAtual.getValorPagto());
+            }
+            
+            
+        }
         
                 
     }

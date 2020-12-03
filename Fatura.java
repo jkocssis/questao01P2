@@ -66,7 +66,7 @@ public class Fatura implements Pagavel {
     @Override
     public String toString(){
         return String.format("%s: %n%s: %s (%s) %n%s: %d %n%s: R$%,.2f",
-                "fatura", "numero",getNumero(),  getDescricao(),"quantidade",
+                "Fatura", "Numero",getNumero(),  getDescricao(),"quantidade",
                 getQuantidade(),"preco do item",getPreco() );
     }
     @Override

@@ -5,11 +5,14 @@
  */
 package questao1p2;
 
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  *
  * @author joaok
  */
-public class Assalariado extends Empregado implements Pagavel {
+public class Assalariado extends Empregado  {
     private double salarioMensal;
 
     public Assalariado( String Nome, String Sobrenome, String CPF,double salarioMensal) {
@@ -41,7 +44,7 @@ public class Assalariado extends Empregado implements Pagavel {
     
     @Override
     public String toString(){
-        return String.format("Salario do peao: %s%n%s: R$%,.2f", 
+        return String.format("Assalariado: %s%n%s: R$%,.2f", 
                 super.toString(), "Salario Mensal", getSalarioMensal());
     }
     

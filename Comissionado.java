@@ -5,11 +5,13 @@
  */
 package questao1p2;
 
+import java.util.Calendar;
+
 /**
  *
  * @author joaok
  */
-public class Comissionado extends Empregado implements Pagavel  {
+public class Comissionado extends Empregado  {
     private double vendasMensal;
     private double percComissao;
 
@@ -56,7 +58,7 @@ public class Comissionado extends Empregado implements Pagavel  {
     
     @Override
     public String toString(){
-        return String.format("%s: %s%n%s: R$%,..2f; %s: %.2f", 
+        return String.format("%s: %s%n%s: R$%,.2f; %s: %,.2f", 
                 "Comissionado", super.toString(),
                 "Vendas do mes", getVendasMensal(),
                 "Comisa0", getPercComissao());
