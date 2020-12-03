@@ -5,6 +5,12 @@
  */
 package questao1p2;
 
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+
 /**
  *
  * @author joaok
@@ -15,10 +21,15 @@ public class Questao1P2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Assalariado assalariado = new Assalariado("Jao", "da Silva","12325",2000.00);
-        Horista horista = new Horista("Ze", "das Couves", "451214", 1.0,100.0);
-        Comissionado com = new Comissionado("Aparicio" , "Torelli", "1267",5000.0, 0.5);
-        BaseComissionado base = new BaseComissionado("Mirian", "da Costa","1582",
+        Date AssaNascim = new Date(01,01,1979);
+        Date HoristaNascim = new Date(10,03,2000);
+        Date ComNascim = new Date(05,11,1999);
+        Date BaseNascim = new Date(9,9,2000);
+        
+        Assalariado assalariado = new Assalariado("Jao", "da Silva","12325",AssaNascim,2000.00);
+        Horista horista = new Horista("Ze", "das Couves", "451214",HoristaNascim ,1.0,100.0);
+        Comissionado com = new Comissionado("Aparicio" , "Torelli", "1267",ComNascim,5000.0, 0.5);
+        BaseComissionado base = new BaseComissionado("Mirian", "da Costa","1582",BaseNascim,
         100.0, 0.5, 1000.00);
         
         System.out.println("Empregados: ");
@@ -26,7 +37,7 @@ public class Questao1P2 {
         
         System.out.println("\nAssalariado: "+ "\nNome: " + assalariado.getNome()+" " +
                 assalariado.getSobrenome()+"\nCPF:"
-                + assalariado.getCPF() +" \nRecebeu: R$" + assalariado.getValorPagto());
+                + assalariado.getCPF() +"\nAniversario: "+assalariado.getDataNasc()+" \nRecebeu: R$" + assalariado.getValorPagto());
         
         System.out.println("\nHorista: "+ "\nNome: " + horista.getNome() +" "+
                 horista.getSobrenome()+"\nCPF:"
@@ -68,7 +79,7 @@ public class Questao1P2 {
             System.out.println("Ganhos em 12 meses: R$" +corrente.getValorPagto() * 12);
             System.out.println("*************************************");
             
-           Pagavel[] fatura = new Pagavel[6];
+          /* Pagavel[] fatura = new Pagavel[6];
            
            fatura[0] = new Fatura("123", "Cadeira", 100, 200.00);
            fatura[1] = new Assalariado("Paula", "dos Santos", "1258", 1000.00);
@@ -80,7 +91,7 @@ public class Questao1P2 {
             System.out.println("Faturas: ");
             
             for(Pagavel faturaAtual: fatura ){
-                System.out.println("\n"+faturaAtual.toString()+"\nTotal: R$"+faturaAtual.getValorPagto());
+                System.out.println("\n"+faturaAtual.toString()+"\nTotal: R$"+faturaAtual.getValorPagto());*/
             }
             
             
@@ -89,4 +100,4 @@ public class Questao1P2 {
                 
     }
     
-}
+

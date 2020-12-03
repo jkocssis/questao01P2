@@ -5,8 +5,9 @@
  */
 package questao1p2;
 
-import java.util.Calendar;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
 
 /**
  *
@@ -16,13 +17,15 @@ public abstract class Empregado implements Pagavel {
     private final String Nome;
     private final  String Sobrenome;
     private final  String CPF;
+    private final Date dataNasc;
     
     
 
-    public Empregado(String Nome, String Sobrenome, String CPF ) {
+    public Empregado(String Nome, String Sobrenome, String CPF, Date dataNasc ) {
         this.Nome = Nome;
         this.Sobrenome = Sobrenome;
         this.CPF = CPF;
+        this.dataNasc = dataNasc;
         
     }
     
@@ -42,12 +45,17 @@ public abstract class Empregado implements Pagavel {
         return CPF;
     }
 
+    public Date getDataNasc() {
+        return dataNasc;
+    }
+    
+
     
     
 
     @Override
     public String toString(){
-        return String.format("%s %s%nCPF: %s", getNome(), getSobrenome(), getCPF());
+        return String.format("%s %s%nCPF: %s%s", getNome(), getSobrenome(), getCPF(), getDataNasc());
     }
     
     //public abstract double Ganhos();

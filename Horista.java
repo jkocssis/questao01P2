@@ -5,7 +5,9 @@
  */
 package questao1p2;
 
-import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 /**
  *
@@ -15,8 +17,8 @@ public class Horista extends Empregado {
     private double valorHora;
     private double horasTrab;
 
-    public Horista( String Nome, String Sobrenome, String CPF , double valorHora, double horasTrab) {
-        super(Nome, Sobrenome, CPF);
+    public Horista( String Nome, String Sobrenome, String CPF,Date dataNasc  , double valorHora, double horasTrab) {
+        super(Nome, Sobrenome, CPF,dataNasc );
         if ( valorHora < 0.0)
             throw new IllegalArgumentException(
             "O valor da hora trabalhada  deve ser maior ou igual a 0");

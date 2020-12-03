@@ -5,7 +5,9 @@
  */
 package questao1p2;
 
-import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 /**
  *
@@ -15,8 +17,9 @@ public class Comissionado extends Empregado  {
     private double vendasMensal;
     private double percComissao;
 
-    public Comissionado( String Nome, String Sobrenome, String CPF,double vendasMensal, double percComissao) {
-        super(Nome, Sobrenome, CPF);
+    public Comissionado( String Nome, String Sobrenome, String CPF,
+            Date dataNasc ,double vendasMensal, double percComissao) {
+        super(Nome, Sobrenome, CPF,dataNasc );
         
         if (percComissao <= 0.0 || percComissao >= 1.0)
             throw new IllegalArgumentException(

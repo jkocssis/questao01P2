@@ -5,8 +5,9 @@
  */
 package questao1p2;
 
-import java.util.Calendar;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
 
 /**
  *
@@ -15,8 +16,8 @@ import java.util.Date;
 public class Assalariado extends Empregado  {
     private double salarioMensal;
 
-    public Assalariado( String Nome, String Sobrenome, String CPF,double salarioMensal) {
-        super(Nome, Sobrenome, CPF);
+    public Assalariado( String Nome, String Sobrenome, String CPF, Date dataNasc ,double salarioMensal) {
+        super(Nome, Sobrenome, CPF, dataNasc );
         if(salarioMensal < 0.0)
             throw new IllegalArgumentException(
             "Salario mensal deve ser maior ou igual a 0");
