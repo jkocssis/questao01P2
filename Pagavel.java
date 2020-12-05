@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ João Henrique RA 2760481921003
+ Gabriel RA 2760481911011
  */
 package questao1p2;
 

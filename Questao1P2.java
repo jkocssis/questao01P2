@@ -1,12 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ João Henrique RA 2760481921003
+ Gabriel RA 2760481911011
  */
 package questao1p2;
 
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -21,39 +21,28 @@ public class Questao1P2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Date AssaNascim = new Date(01,01,1979);
-        Date HoristaNascim = new Date(10,03,2000);
-        Date ComNascim = new Date(05,11,1999);
-        Date BaseNascim = new Date(9,9,2000);
+        //cria um objeto com a data de hoje
+        LocalDate hoje = LocalDate.now();
         
+        //cria objetos com o aniversario dos empregados
+        LocalDate AssaNascim =  LocalDate.of(2000,12,03);
+        LocalDate HoristaNascim = LocalDate.of(2001,12,04);
+        LocalDate ComNascim = LocalDate.of(1995,12,3);
+        LocalDate BaseNascim = LocalDate.of(1999,12,04);
+        
+        
+        //instancia os empregados
         Assalariado assalariado = new Assalariado("Jao", "da Silva","12325",AssaNascim,2000.00);
-        Horista horista = new Horista("Ze", "das Couves", "451214",HoristaNascim ,1.0,100.0);
-        Comissionado com = new Comissionado("Aparicio" , "Torelli", "1267",ComNascim,5000.0, 0.5);
+        Horista horista = new Horista("Ze", "das Couves", "451214", HoristaNascim ,10.0,100.0,0.0);
+        Comissionado com = new Comissionado("Aparicio" , "Torelli", "1267",ComNascim,5000.0, 0.5,0.0);
         BaseComissionado base = new BaseComissionado("Mirian", "da Costa","1582",BaseNascim,
-        100.0, 0.5, 1000.00);
+        100.0, 0.5, 1000.00,0.0);
         
         System.out.println("Empregados: ");
         
         
-        System.out.println("\nAssalariado: "+ "\nNome: " + assalariado.getNome()+" " +
-                assalariado.getSobrenome()+"\nCPF:"
-                + assalariado.getCPF() +"\nAniversario: "+assalariado.getDataNasc()+" \nRecebeu: R$" + assalariado.getValorPagto());
         
-        System.out.println("\nHorista: "+ "\nNome: " + horista.getNome() +" "+
-                horista.getSobrenome()+"\nCPF:"
-                + horista.getCPF() + "\nHoras trabalhadas: " +horista.gethorasTrab()
-                + "\nvalor da hora: " + horista.getValorHora() +" \nRecebeu: R$" + horista.getValorPagto());
-        
-       System.out.println("\nComissionado:" + "\nNome: "+com.getNome()+" "+com.getSobrenome()+
-               "\nCPF: "+com.getCPF()+ "\nVendas: "+ com.getVendasMensal()+
-               "\nComissao:"+ com.getPercComissao()+
-               "\nRecebeu: R$" + com.getValorPagto());
-       
-       System.out.println("\nBase Comissionado:" + "\nNome: "+ base.getNome()+" "+ base.getSobrenome()+
-               "\nCPF: "+ base.getCPF()+ "\nVendas: "+ base.getVendasMensal()+
-               "\nComissao:"+ base.getPercComissao()+ 
-               "\nSalario base:"+base.getSalarioBase()+
-               "\nRecebeu: R$" + base.getValorPagto());
+        //cria uma array com os empregados
        
        Empregado[] empregados = new Empregado[4];
        
@@ -63,41 +52,47 @@ public class Questao1P2 {
        empregados[3] = base;
        
         System.out.println("\nLista de empregados: ");
-        for(Empregado corrente:empregados){
-            /*System.out.println(corrente.getNome()+" "+ corrente.getSobrenome()+
-                   "\nCPF"+ corrente.getCPF()+"\n");*/
-            System.out.println("\n"+corrente);
+        
+        
+        
+        for(Empregado atual: empregados){
             
-            if(corrente instanceof BaseComissionado){
-                BaseComissionado empregado = (BaseComissionado) corrente;
+            if(atual instanceof BaseComissionado){
+                BaseComissionado empregado = (BaseComissionado) atual;
             empregado.setSalarioBase(1.10 * empregado.getSalarioBase());
             
                 System.out.println("O novo salario do Base Comissionado, acrescido de 10% e: R$"
                         + empregado.getSalarioBase());
-        }
-            System.out.println("\nGanhos por mes: R$" +corrente.getValorPagto());
-            System.out.println("Ganhos em 12 meses: R$" +corrente.getValorPagto() * 12);
+            }
+            System.out.println("\n"+atual);
+            System.out.println("\nGanhos por mes: R$" +atual.getValorPagto());
+            System.out.println("Ganhos em 12 meses: R$" +atual.getValorPagto() * 12);
             System.out.println("*************************************");
             
-          /* Pagavel[] fatura = new Pagavel[6];
+        }
+            //cria faturas 
+           Pagavel[] fatura = new Pagavel[4];
            
            fatura[0] = new Fatura("123", "Cadeira", 100, 200.00);
-           fatura[1] = new Assalariado("Paula", "dos Santos", "1258", 1000.00);
-           fatura[2] = new Fatura("124", "PC", 10, 1000.00);
-           fatura[3] = new Fatura("125", "Armario", 2, 500.00);
-           fatura[4] = new Fatura("126", "Cafe", 100, 20);
-           fatura[5] = new Horista("Marcia", "Valadares", "14558", 25, 110);
+           fatura[1] = new Fatura("124", "PC", 10, 1000.00);
+           fatura[2] = new Fatura("125", "Armario", 2, 500.00);
+           fatura[3] = new Fatura("126", "Cafe", 100, 20);
            
-            System.out.println("Faturas: ");
-            
+           
+            System.out.println("\nFaturas: ");
+            //processa as faturas e imprime
             for(Pagavel faturaAtual: fatura ){
-                System.out.println("\n"+faturaAtual.toString()+"\nTotal: R$"+faturaAtual.getValorPagto());*/
-            }
-            
-            
-        }
-        
+                System.out.println("\n"+faturaAtual.toString()+"\nTotal: R$"+faturaAtual.getValorPagto());
                 
-    }
+                
+                
+            }
+            }
+          
+            }  
+            
+            
+        
+              
     
 

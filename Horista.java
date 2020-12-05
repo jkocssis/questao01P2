@@ -1,12 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ João Henrique RA 2760481921003
+ Gabriel RA 2760481911011
  */
 package questao1p2;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.time.LocalDate;
 
 
 /**
@@ -16,19 +16,22 @@ import java.util.Date;
 public class Horista extends Empregado {
     private double valorHora;
     private double horasTrab;
+    private double adic;
 
-    public Horista( String Nome, String Sobrenome, String CPF,Date dataNasc  , double valorHora, double horasTrab) {
+    public Horista( String Nome, String Sobrenome, String CPF,
+            LocalDate dataNasc  , double valorHora, double horasTrab, double adic) {
         super(Nome, Sobrenome, CPF,dataNasc );
         if ( valorHora < 0.0)
             throw new IllegalArgumentException(
             "O valor da hora trabalhada  deve ser maior ou igual a 0");
         
-        if ( horasTrab < 0.0 || (horasTrab > 168.0))
+        if ( horasTrab < 0.0 )
             throw new IllegalArgumentException(
-            "A hora trabalhada  deve ser maior ou igual a 0.0 e menor ou igual 168.0");
+            "A hora trabalhada  deve ser maior ou igual a 0.00");
         
         this.valorHora = valorHora;
         this.horasTrab = horasTrab;
+        this.adic = adic;
     }
 
     
@@ -43,14 +46,22 @@ public class Horista extends Empregado {
         return valorHora;
     }
 
+    public void setAdic(double adic) {
+        this.adic = adic;
+    }
+
+    public double getAdic() {
+        return adic;
+    }
+
    
     
     
     
     public void sethorasTrab(double horas){
-        if ( horasTrab < 0.0 || (horasTrab > 168.0))
+        if ( horasTrab < 0.0 )
             throw new IllegalArgumentException(
-            "A hora trabalhada  deve ser maior ou igual a 0.0 e menor ou igual R$168,00");
+            "A hora trabalhada  deve ser maior ou igual a 0.0 e menor ou igual 160.00");
         this.horasTrab = horas;
     }
     
@@ -60,17 +71,17 @@ public class Horista extends Empregado {
     
     @Override
     public double getValorPagto(){
-        if(gethorasTrab() <= 40)
-            return getValorHora() * gethorasTrab() ;
+        if(gethorasTrab() <= 160)
+            return (getValorHora() * gethorasTrab()) + getAdic() ;
         else 
-            return 40 * getValorHora() + (gethorasTrab() - 40 ) * getValorHora() * 1.5;
+            return 160 * getValorHora() + (gethorasTrab() - 160 ) * getValorHora() * 1.5 + getAdic();
     }
     
     @Override
     public String toString(){
         return String.format("Horista: %s%n%s: R$%,.2f; %s: %,.2f", 
-                super.toString(), "valor da hora:", getValorHora(),
-                "horas trabalhadas:", gethorasTrab() );
+                super.toString(), "valor da hora", getValorHora(),
+                "horas trabalhadas", gethorasTrab() );
     }
     
     

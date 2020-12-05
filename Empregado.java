@@ -1,13 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ João Henrique RA 2760481921003
+ Gabriel RA 2760481911011
  */
 package questao1p2;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import java.time.LocalDate;
 
 /**
  *
@@ -17,11 +16,11 @@ public abstract class Empregado implements Pagavel {
     private final String Nome;
     private final  String Sobrenome;
     private final  String CPF;
-    private final Date dataNasc;
+    private final LocalDate dataNasc;
     
     
 
-    public Empregado(String Nome, String Sobrenome, String CPF, Date dataNasc ) {
+    public Empregado(String Nome, String Sobrenome, String CPF, LocalDate dataNasc ) {
         this.Nome = Nome;
         this.Sobrenome = Sobrenome;
         this.CPF = CPF;
@@ -32,11 +31,12 @@ public abstract class Empregado implements Pagavel {
        
     
           
-
+//retorna o nome
     public String getNome() {
         return Nome;
     }
-
+    
+    //retorna o sobrenome
     public String getSobrenome() {
         return Sobrenome;
     }
@@ -45,9 +45,11 @@ public abstract class Empregado implements Pagavel {
         return CPF;
     }
 
-    public Date getDataNasc() {
+    public LocalDate getDataNasc() {
         return dataNasc;
     }
+
+    
     
 
     
@@ -55,7 +57,7 @@ public abstract class Empregado implements Pagavel {
 
     @Override
     public String toString(){
-        return String.format("%s %s%nCPF: %s%s", getNome(), getSobrenome(), getCPF(), getDataNasc());
+        return String.format("%s %s%nCPF: %s%nAniversario: %s", getNome(), getSobrenome(), getCPF(), getDataNasc());
     }
     
     //public abstract double Ganhos();

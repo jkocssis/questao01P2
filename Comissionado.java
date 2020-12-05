@@ -1,12 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ João Henrique RA 2760481921003
+ Gabriel RA 2760481911011
  */
 package questao1p2;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.time.LocalDate;
 
 
 /**
@@ -16,9 +16,10 @@ import java.util.Date;
 public class Comissionado extends Empregado  {
     private double vendasMensal;
     private double percComissao;
+    private double adicional;
 
     public Comissionado( String Nome, String Sobrenome, String CPF,
-            Date dataNasc ,double vendasMensal, double percComissao) {
+            LocalDate dataNasc ,double vendasMensal, double percComissao, double adicional) {
         super(Nome, Sobrenome, CPF,dataNasc );
         
         if (percComissao <= 0.0 || percComissao >= 1.0)
@@ -31,6 +32,7 @@ public class Comissionado extends Empregado  {
         
         this.vendasMensal = vendasMensal;
         this.percComissao = percComissao;
+        this.adicional = adicional;
     }
     public void setvendasMensal(double vendasMensal){
          if (vendasMensal < 0.0)
@@ -53,18 +55,27 @@ public class Comissionado extends Empregado  {
     public double getPercComissao() {
         return percComissao;
     }
+
+    public double getAdicional() {
+        return adicional;
+    }
+
+    public void setAdicional(double adicional) {
+        this.adicional = adicional;
+    }
+    
     
     @Override
     public double getValorPagto(){
-        return getPercComissao() * getVendasMensal();
+        return (getPercComissao() * getVendasMensal()) + getAdicional() ;
     }
     
     @Override
     public String toString(){
-        return String.format("%s: %s%n%s: R$%,.2f; %s: %,.2f", 
+        return String.format("%s: %s%n%s: %,.2f; %s: %,.2f", 
                 "Comissionado", super.toString(),
                 "Vendas do mes", getVendasMensal(),
-                "Comisa0", getPercComissao());
+                "Comisao", getPercComissao());
     }
     
     

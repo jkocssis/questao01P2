@@ -1,12 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ João Henrique RA 2760481921003
+ Gabriel RA 2760481911011
  */
 package questao1p2;
 
 import java.util.Calendar;import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.time.LocalDate;
 
 
 /**
@@ -16,10 +16,10 @@ import java.util.Date;
 public class BaseComissionado extends Comissionado   {
     private double salarioBase;
 
-    public BaseComissionado( String Nome, String Sobrenome, String CPF,Date dataNasc ,
-            double vendasMensal, double percComissao, double salarioBase) {
+    public BaseComissionado( String Nome, String Sobrenome, String CPF,LocalDate dataNasc ,
+            double vendasMensal, double percComissao, double salarioBase, double adicional) {
         
-        super(Nome, Sobrenome, CPF,dataNasc  , vendasMensal, percComissao);
+        super(Nome, Sobrenome, CPF,dataNasc  , vendasMensal, percComissao, adicional);
         
         if (salarioBase < 0.0)
             throw new IllegalArgumentException(
